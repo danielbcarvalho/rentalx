@@ -2,7 +2,6 @@ import { User } from '../entities/User'
 
 interface ICreateUserDTO {
   name: string
-  username: string
   password: string
   email: string
   driver_license: string
@@ -10,12 +9,11 @@ interface ICreateUserDTO {
 }
 
 interface IUsersRepository {
-  findByUsername(username: string): Promise<User>
+  findByName(name: string): Promise<User>
   findByEmail(email: string): Promise<User>
   list(): Promise<User[]>
   create({
     name,
-    username,
     password,
     email,
     driver_license,
