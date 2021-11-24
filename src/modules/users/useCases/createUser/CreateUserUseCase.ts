@@ -1,3 +1,4 @@
+import { hash } from 'bcryptjs'
 import { inject, injectable } from 'tsyringe'
 
 import {
@@ -25,6 +26,8 @@ class CreateUserUseCase {
       throw new Error('name already exists')
     }
 
+    const passwordHash = await hash(password, 8)
+
     const emailAlreadyExists = await this.usersRepository.findByEmail(email)
 
     if (emailAlreadyExists) {
@@ -33,7 +36,7 @@ class CreateUserUseCase {
 
     this.usersRepository.create({
       name,
-      password,
+      password: passwordHash,
       email,
       driver_license,
       admin
