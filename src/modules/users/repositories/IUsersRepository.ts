@@ -6,6 +6,8 @@ interface ICreateUserDTO {
   email: string
   driver_license: string
   admin?: boolean
+  id?: string
+  avatar?: string
 }
 
 interface IUsersRepository {

@@ -1,6 +1,7 @@
-import { NextFunction, Request, Response } from 'express'
+import { NextFunction, Response } from 'express'
 import { verify } from 'jsonwebtoken'
 
+import { IRequestCustom } from '../@types/express'
 import { AppError } from '../errors/AppError'
 import { UsersRepository } from '../modules/users/repositories/implementations/UsersRepository'
 
@@ -9,7 +10,7 @@ interface IPayload {
 }
 
 export async function ensureAuthenticated(
-  request: Request,
+  request: IRequestCustom,
   response: Response,
   next: NextFunction
 ): Promise<void> {
@@ -33,6 +34,10 @@ export async function ensureAuthenticated(
 
     if (!user) {
       throw new AppError('User does not exists!', 401)
+    }
+
+    request.user = {
+      id: user_id
     }
 
     next()
