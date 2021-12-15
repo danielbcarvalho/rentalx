@@ -1,4 +1,5 @@
-import { User } from '../../entities/User'
+import { User } from '@modules/users/entities/User'
+
 import { ICreateUserDTO, IUsersRepository } from '../IUsersRepository'
 
 class UserRepositoryInMemory implements IUsersRepository {
