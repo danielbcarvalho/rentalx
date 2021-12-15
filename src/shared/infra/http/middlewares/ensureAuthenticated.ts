@@ -1,9 +1,10 @@
+/* eslint-disable import/no-duplicates */
 import { NextFunction, Response } from 'express'
 import { verify } from 'jsonwebtoken'
 
-import { IRequestCustom } from '../@types/express'
-import { AppError } from '../errors/AppError'
-import { UsersRepository } from '../modules/users/repositories/implementations/UsersRepository'
+import { IRequestCustom } from '../../../../@types/express'
+import { UsersRepository } from '../../../../modules/users/infra/typeorm/repositories/UsersRepository'
+import { AppError } from '../../../errors/AppError'
 
 interface IPayload {
   sub: string
