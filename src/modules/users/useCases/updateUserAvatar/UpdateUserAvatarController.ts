@@ -1,7 +1,7 @@
 import { Response } from 'express'
 import { container } from 'tsyringe'
 
-import { IRequestCustom } from '../../../../@types/express'
+import { IRequestCustom } from '../../../../@types'
 import { UpdateUserAvatarUseCase } from './UpdateUserAvatarUseCase'
 
 class UpdateUserAvatarController {

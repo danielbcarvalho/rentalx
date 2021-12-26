@@ -2,7 +2,7 @@
 import { NextFunction, Response } from 'express'
 import { verify } from 'jsonwebtoken'
 
-import { IRequestCustom } from '../../../../@types/express'
+import { IRequestCustom } from '../../../../@types'
 import { UsersRepository } from '../../../../modules/users/infra/typeorm/repositories/UsersRepository'
 import { AppError } from '../../../errors/AppError'
 
