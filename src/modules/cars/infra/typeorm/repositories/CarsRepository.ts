@@ -65,7 +65,7 @@ class CarsRepository implements ICarsRepository {
       .set({
         available
       })
-      .where('id = : car_id')
+      .where('id = :car_id')
       .setParameters({
         car_id
       })
