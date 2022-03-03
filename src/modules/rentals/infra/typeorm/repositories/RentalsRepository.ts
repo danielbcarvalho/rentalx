@@ -28,6 +28,12 @@ class RentalsRepository implements IRentalsRepository {
     return openByUser
   }
 
+  async findAllRentalsByUser(user_id: string): Promise<Rental[]> {
+    const rentals = await this.repository.find({ user_id })
+
+    return rentals
+  }
+
   async create(data: ICreateRentalDTO): Promise<Rental> {
     const rental = this.repository.create(data)
 

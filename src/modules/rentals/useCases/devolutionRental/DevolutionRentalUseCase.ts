@@ -23,12 +23,17 @@ class DevolutionRentalUseCase {
   ) {}
   async execute({ id, user_id }: IRequest): Promise<Rental> {
     const rental = await this.rentalsRepository.findById(id)
-    const car = await this.carsRepository.findById(rental.car_id)
-    const minimum_daily = 1
+    console.log(
+      '🚀 ~ file: DevolutionRentalUseCase.ts ~ line 26 ~ DevolutionRentalUseCase ~ execute ~ rental',
+      rental
+    )
 
     if (!rental) {
       throw new AppError('Rental does not exists!')
     }
+
+    const car = await this.carsRepository.findById(rental.car_id)
+    const minimum_daily = 1
 
     // verificar tempo de aluguel
     const dateNow = this.dateProvider.dateNow()
